@@ -1,0 +1,21 @@
+
+<mat-card style="margin-top: 4rem">
+    <mat-card-header><p>Configurator</p></mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Select <Object></Object></mat-label>
+            <mat-select [value]="selected">
+              <mat-option *ngFor="let obj of objects" [value]="obj.value" (click)="changeObject(obj.value)">
+                {{obj.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="input" *ngFor="let prop of objectKeys(currentArgumentsInputs)">
+            <input matInput type="number" placeholder="{{prop}}" [(ngModel)]="this.currentArgumentsInputs[prop]" value="{{currentArgumentsInputs[prop]}}" (input)="instantiateObject()">
+          </mat-form-field>
+
+          <button mat-raised-button (click)="instantiateObject();">Instantiate</button>
+    </mat-card-content>
+</mat-card>

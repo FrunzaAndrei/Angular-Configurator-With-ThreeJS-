@@ -1,0 +1,14 @@
+#background{
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-image: url('../../assets/images/backgroundHome.jpg');
+    margin-top:-22px;
+}
+h1{
+   padding-top:20%;
+   color: rgb(66, 63, 63);
+}

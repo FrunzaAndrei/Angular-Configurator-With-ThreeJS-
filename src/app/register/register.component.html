@@ -1,0 +1,57 @@
+
+<div *ngIf='registerIs == true'>
+<form class="example-form" >
+    <mat-form-field>
+      <input
+        #userEmail
+        matInput
+        placeholder="Enter your email"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        #password
+        matInput
+        placeholder="Enter your password"
+        [type]="hide ? 'password' : 'text'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field> 
+  </form>
+  
+  <button
+    mat-raised-button
+    (click)="register({ email: userEmail.value, password: password.value })"
+  >
+    Register
+  </button>
+</div>
+
+
+
+    <mat-card *ngIf="(registerIs == false) && (errorCode!='')">
+       <mat-card-header>Do you want to try again register step?</mat-card-header>
+       <mat-card-actions>
+           <button mat-raised-button (click)="registerIs = !registerIs"> Again </button>
+           <button mat-raised-button (click)="goToHomePage()"> Cancel </button>
+       </mat-card-actions>
+    </mat-card>
+
+    <mat-card *ngIf="(registerIs == false) && (errorCode=='')" >
+        <mat-card-header>Do you want continue with login?</mat-card-header>
+        <mat-card-actions>
+                <button mat-raised-button (click)="login()"> Login </button>
+                <button mat-raised-button (click)="goToHomePage()"> Cancel </button>
+        </mat-card-actions>
+    </mat-card>
