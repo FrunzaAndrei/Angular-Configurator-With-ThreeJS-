@@ -30,6 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - this is my small and basic app configurator
 - i used angular and three.js library for this app
+- you will need to install npm
 - to run the app , open project folder and write "ng serve" in command prompt associated with chat's folder
 - you will found it in your browser with localhost:4200
 - to try my app you will need to register with any email and password than click on "Instantiate" button 
